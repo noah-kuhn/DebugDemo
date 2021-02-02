@@ -33,7 +33,7 @@ int function1()
 
     // Print out variables throughout loop
     // After a few iterations, run display command
-    // There is a breakpoint on line 38
+    // There is a breakpoint on line 37
     for ( ; x<10; x++)
     {
         if (x % 2 == 0)
