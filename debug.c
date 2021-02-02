@@ -45,9 +45,6 @@ int main() {
     free(root);
     recursive(root);
 
-    // Now see what happens --- idk what will happend but i want to try to allocate to the freed memory
-    calloc (1, 4096);
-
     return 0;
 }
 
