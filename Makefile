@@ -4,7 +4,7 @@
 #
 
 CC=gcc
-CC_FLAGS= -g -o0 -Wall -Werror
+CC_FLAGS= -g -o0 -Wall
 DEPS = debug.h
 
 all:

@@ -10,13 +10,43 @@
 
 #include "debug.h"      /* we also need to include our header file! this includes stdbool for us */
 
+struct node
+{
+    int a;
+    int b;
+    struct node *next;
+} *root;
+
 int function1();
+struct node *recursive(struct node *next_node);
 
 /* this is similar to Java main: this is the actual function that executes */
 int main() {
     printf("Welcome to this debugging demo! Find the bugs :)\n");
 
+    // Create dummy linked list
+    root = calloc(1, sizeof(struct node));
+    struct node *temp = root;
+    for (int i = 0; i < 10; i++)
+    {
+        temp->a = i;
+        temp->b = i * 2;
+        temp->next = calloc(1, sizeof(struct node));
+        temp = temp->next;
+    }
+    temp->next = NULL;
+
     function1();
+    recursive(root);
+
+    // ---------------- This is where the bugs start -------------------
+
+    // Let's see what happens when we access freed memory
+    free(root);
+    recursive(root);
+
+    // Now see what happens --- idk what will happend but i want to try to allocate to the freed memory
+    calloc (1, 4096);
 
     return 0;
 }
@@ -32,8 +62,9 @@ int function1()
     int y = 0;
 
     // Print out variables throughout loop
-    // After a few iterations, run display command
-    // There is a breakpoint on line 37
+    // After a few iterations, run 'display x' command
+
+    // Run 'l' to show lines and put breakpoint on next line
     for ( ; x<10; x++)
     {
         if (x % 2 == 0)
@@ -48,7 +79,25 @@ int function1()
 
     x = y;
 
-    return 0;
+    return 24;
+}
+
+/* Demonstrates how to move through a stack. 
+   Also demonstrates reading pointers and 
+   accessing memory at a memory address */
+struct node *recursive(struct node *next_node)
+{
+    // Call 'print next_node'
+    // Call 'print *next_node'
+    // Call 'print *next_node->next'
+    // Call 'bt' and 'info stack' and 'info frame'
+    if (next_node == NULL)
+        return NULL;
+    else
+    {
+        int useless = next_node->a + next_node->b;
+        return recursive(next_node->next);
+    }
 }
 
 
