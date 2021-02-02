@@ -4,11 +4,11 @@
 #
 
 CC=gcc
-CC_FLAGS= -g -I.
+CC_FLAGS= -g -o0 -Wall -Werror
 DEPS = debug.h
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CC_FLAGS)
+all:
+	$(CC) $(CC_FLAGS) -o debug debug.c
 
-debugdemo: debug.o
-	$(CC) -o debug debug.o
+clean:
+	rm debug
