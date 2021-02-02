@@ -1,2 +1,7 @@
 # DebugDemo
-Just a little debugging demo
+
+**Just a little debugging demo**
+
+*Authors: Thomas Peavler and Noah Kuhn*
+
+
