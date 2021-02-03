@@ -7,26 +7,16 @@
 #include <stdlib.h>     /* standard library */
 #include <stdio.h>      /* standard input/output library */
 #include <string.h>     /* standard string library */
+#include <assert.h>     /* assertion library */
 
-#include "debug.h"      /* we also need to include our header file! this includes stdbool for us */
-
-struct node
-{
-    int a;
-    int b;
-    struct node *next;
-} *root;
-
-int function1();
-struct node *recursive(struct node *next_node);
-void defensiveProgramming();
+#include "debug.h"      /* we also need to include our header file */
 
 /* this is similar to Java main: this is the actual function that executes */
 int main() {
     printf("Welcome to this debugging demo! Find the bugs :)\n");
 
     // Create dummy linked list
-    root = calloc(1, sizeof(struct node));
+    struct node *root = calloc(1, sizeof(struct node));
     struct node *temp = root;
     for (int i = 0; i < 10; i++)
     {
@@ -38,6 +28,7 @@ int main() {
     temp->next = NULL;
 
     function1();
+    // assert(function1() == 24); // we know the expected output; an assert here can verify that we get it
     defensiveProgramming();
     recursive(root);
 
@@ -92,6 +83,8 @@ struct node *recursive(struct node *next_node)
     // Call 'bt' and 'info stack' and 'info frame'
     if (next_node == NULL)
         return NULL;
+        // a note: you would NOT want to use an assert statement here, as next_node == NULL is a
+        // base case. asserts will stop execution, while this behaves appropriately for recursion
     else
     {
         int useless = next_node->a + next_node->b;
@@ -107,20 +100,28 @@ void defensiveProgramming()
     char *first_string = "********1234567";
     char *second_string = "abcdefg";
 
-    // Copy a string with out a limit
+    // Copy a string WITHOUT a limit
     strcpy(string2, second_string);
     printf("string2 = %s\n", string2);
 
     strcpy(string, first_string);
-    printf("string2 = %s\n\n", string2);
+    printf("string = %s\n\n", string2);
+
+    // assert statements are a good way to check preconditions and postconditions, and are a good
+    // defensive programming technique.
+    // either of these assert statements would have gotten our attention:
+
+    // assert(strlen(string) == strlen(string2));
+    // assert(strlen(string) == 8);
 
     // NEVER COPY A STRING WITH strcpy!
+    // strncpy (with an 'n') will include a limit of how many characters it should copy over
 
     strncpy(string2, second_string, 8);
     printf("string2 = %s\n", string2);
 
     strncpy(string, first_string, 8);
-    printf("string2 = %s\n\n", string2);
+    printf("string = %s\n\n", string2);
 
     // But how does the computer know when a string ends?
     char *new_string1 = "12345678";

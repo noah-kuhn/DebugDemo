@@ -3,7 +3,13 @@
  *
  */
 
-/* This line includes the standard boolean library - C doesn't have booleans as a primitive, so we
-   have to bring them in with a standard header file */
-#include <stdbool.h> 
+struct node
+{
+    int a;
+    int b;
+    struct node *next;
+};
 
+int function1();
+struct node *recursive(struct node *next_node);
+void defensiveProgramming();
