@@ -4,10 +4,10 @@
 
 *Authors: Thomas Peavler and Noah Kuhn*
 
-**Get the Code**
+# Get the Code
 Simply clone the repository and you're good to go.
 
-**How to Run**
+# How to Run
 Here is a good reference to have open while you go through
 this demo: (https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
 
