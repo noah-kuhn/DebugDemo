@@ -15,7 +15,7 @@ this demo: (https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
 
 2) Then run `gdb debug` to execute debug in gdb
 
-3) To save you time from putting breakpoints on all of the files, 
+3) To save you time from putting breakpoints on all of the functions, 
 run `source breakpoints.txt` to automatically load in several
 breakpoints
 
