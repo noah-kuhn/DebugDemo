@@ -1,8 +1,8 @@
 # DebugDemo
 
-**Just a little debugging demo**
-
-*Authors: Thomas Peavler and Noah Kuhn*
+Just a little debugging demo with gdb. It will require you to
+look at the comments in `debug.c` to understand what commands to
+run. 
 
 # Get the Code
 Simply clone the repository and you're good to go.
@@ -22,7 +22,7 @@ breakpoints
 4) Type `run` to run the program
 
 You should also pull up `debug.c` which contains comments that
-walks through several commands that demonstrate the functionality
+walk through several commands that demonstrate the functionality
 of gdb. Feel free to try any command you would like, the comments
 are simply suggestions.
 
