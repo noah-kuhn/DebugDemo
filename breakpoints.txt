@@ -1,3 +1,4 @@
 break function1
 break recursive
 break defensiveProgramming
+break recursive_segfault
