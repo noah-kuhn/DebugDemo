@@ -13,7 +13,7 @@ this demo: (https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
 
 1) Run `make` which will create an object called `debug`
 
-2) Then run `debug` in gdb by running the command `gdb debug`
+2) Then run `gdb debug` to execute debug in gdb
 
 3) To save you time from putting breakpoints on all of the files, 
 run `source breakpoints.txt` to automatically load in several
