@@ -71,9 +71,9 @@ int function1()
     // Just keep stepping through
 
     // Stuck in a really long loop?
-    // Run 'watchpoint y == 5000'
+    // Run 'watch y == 5000'
     // Run 'finish'
-    while (y < 1000000)
+    while (y < 10000)
         y++;
 
     x = y;
@@ -129,7 +129,7 @@ void defensiveProgramming()
     printf("string2 = %s\n", string2);
 
     strcpy(string, first_string);
-    printf("string = %s\n\n", string);
+    printf("string2 = %s\n\n", string2);
 
     // assert statements are a good way to check preconditions and postconditions, and are a good
     // defensive programming technique.
@@ -145,10 +145,10 @@ void defensiveProgramming()
     printf("string2 = %s\n", string2);
 
     strncpy(string, first_string, 8);
-    printf("string = %s\n\n", string);
+    printf("string2 = %s\n\n", string2);
 
     // But how does the computer know when a string ends?
-    char *new_string1 = "12345678";
+    char *new_string1 = "123";
     strncpy(string, new_string1, 8);
 
     printf("string1 = %s\n", string);
