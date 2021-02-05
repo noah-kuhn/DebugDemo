@@ -129,7 +129,7 @@ void defensiveProgramming()
     printf("string2 = %s\n", string2);
 
     strcpy(string, first_string);
-    printf("string = %s\n\n", string2);
+    printf("string = %s\n\n", string);
 
     // assert statements are a good way to check preconditions and postconditions, and are a good
     // defensive programming technique.
@@ -145,7 +145,7 @@ void defensiveProgramming()
     printf("string2 = %s\n", string2);
 
     strncpy(string, first_string, 8);
-    printf("string = %s\n\n", string2);
+    printf("string = %s\n\n", string);
 
     // But how does the computer know when a string ends?
     char *new_string1 = "12345678";
